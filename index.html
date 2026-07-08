@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Siddhpath Book Store</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+
+    <div class="logo-section">
+        <img src="logo.png" alt="Logo">
+        <h2>Siddhpath</h2>
+    </div>
+
+    <button id="cartButton" onclick="toggleCart()">
+        🛒 Cart (<span id="cartCount">0</span>)
+    </button>
+
+</header>
+
+<section class="hero">
+
+    <h1>पुस्तक संग्रह</h1>
+
+    <input
+        type="text"
+        id="searchBox"
+        placeholder="पुस्तक खोजें..."
+    >
+
+</section>
+
+<main>
+
+    <div id="booksContainer" class="books"></div>
+
+</main>
+
+<div id="cartPanel">
+
+    <div class="cart-header">
+        <h2>आपकी पुस्तकें</h2>
+    </div>
+
+    <div id="cartItems"></div>
+
+    <div class="cart-footer">
+
+        <button class="checkoutBtn" onclick="openCustomerForm()">
+            WhatsApp पर ऑर्डर भेजें
+        </button>
+
+    </div>
+
+</div>
+
+<!-- Customer Modal -->
+
+<div class="modal" id="customerModal">
+
+    <div class="modal-content">
+
+        <h2>अपनी जानकारी भरें</h2>
+
+        <input
+            type="text"
+            id="custName"
+            placeholder="पूरा नाम"
+        >
+
+        <textarea
+            id="custAddress"
+            rows="4"
+            placeholder="पूरा पता"
+        ></textarea>
+
+        <div class="modal-buttons">
+
+            <button class="cancelBtn" onclick="closeCustomerForm()">
+                Cancel
+            </button>
+
+            <button class="confirmBtn" onclick="confirmOrder()">
+                Confirm
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- Template used by JavaScript -->
+
+<template id="bookTemplate">
+
+    <div class="book">
+
+        <img class="book-image">
+
+        <h3 class="book-title"></h3>
+
+        <div class="details"></div>
+
+        <div class="qty-box">
+
+            <button class="minus">−</button>
+
+            <input
+                type="number"
+                value="0"
+                min="0"
+            >
+
+            <button class="plus">+</button>
+
+        </div>
+
+        <button class="cart-btn">
+            Add to Cart
+        </button>
+
+    </div>
+
+</template>
+
+<script src="script.js"></script>
+
+</body>
+</html>
